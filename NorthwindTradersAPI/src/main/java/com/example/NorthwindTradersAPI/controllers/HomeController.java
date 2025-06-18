@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeController {
 
    @GetMapping(path = "/")
-   public String homepage(@RequestParam (defaultValue = "World")
+   public String homepage(@RequestParam(defaultValue = "World")
 						  String country) {
 	  return "Hello, " + country + "!";
    }
