@@ -20,13 +20,18 @@ public class CategoriesController {
    }
 
    @RequestMapping(path = "/categories/{categoryId}", method = RequestMethod.GET)
-   public List<Category> getCategory(@PathVariable int categoryId) {
+   public Category getCategory(@PathVariable int categoryId) {
 	  List<Category> categoriesList = new ArrayList<>();
 	  categoriesList.add(new Category(1, "Home and Office"));
 	  categoriesList.add(new Category(2, "Canned Foods"));
 	  categoriesList.add(new Category(3, "Dessert Foods"));
 
-	  return categoriesList;
+	  for (Category c : categoriesList) {
+		 if (c.getCategoryId() == categoryId) {
+			return c;
+		 }
+	  }
+	  return null;
    }
 
 }

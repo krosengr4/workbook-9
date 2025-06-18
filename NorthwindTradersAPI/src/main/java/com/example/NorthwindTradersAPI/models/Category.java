@@ -10,6 +10,8 @@ public class Category {
 	  this.categoryName = categoryName;
    }
 
+   public Category() {}
+
    //region getters and setter
    public void setCategoryId(int categoryId) {
 	  this.categoryId = categoryId;

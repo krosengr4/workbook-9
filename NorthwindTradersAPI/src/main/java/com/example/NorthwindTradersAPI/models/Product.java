@@ -7,11 +7,14 @@ public class Product {
    int categoryId;
    double unitPrice;
 
-   public Product (int productId, String name, int categoryId, double unitPrice) {
+   public Product(int productId, String name, int categoryId, double unitPrice) {
 	  this.productId = productId;
-	  this.name	= name;
+	  this.name = name;
 	  this.categoryId = categoryId;
 	  this.unitPrice = unitPrice;
+   }
+
+   public Product() {
    }
 
    //region getters and setters
