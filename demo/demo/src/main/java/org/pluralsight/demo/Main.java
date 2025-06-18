@@ -19,13 +19,11 @@ public class Main {
 		boolean ifContinue = true;
 
 		while (ifContinue) {
-		   System.out.println("---OPTIONS---");
-		   System.out.println("1 - List Products\n2 - Add New Product\n0 - Exit");
-		   int userChoice = Integer.parseInt(myScanner.nextLine());
+		   int userChoice = displayMainMenu();
 
 		   switch(userChoice) {
-			  case 1 -> processListProducts();
-			  case 2 -> processAddNewProduct();
+			  case 1 -> processListProducts(productDao);
+			  case 2 -> processAddNewProduct(productDao);
 			  case 0 -> ifContinue = false;
 			  default -> System.err.println("ERROR! Please enter option on the list!");
 		   }
@@ -33,20 +31,26 @@ public class Main {
 
 	}
 
-	static void processListProducts() {
-	   ArrayList<Product> productsList = productDao.getAll();
+   private static int displayMainMenu() {
+	  System.out.println("--------MAIN MENU--------");
+	  System.out.println("\n---OPTIONS---");
+	  System.out.println("""
+					1 - List All Products
+					2 - Add New Product
+					0 - Exit
+					""");
+	  System.out.println("\nEnter your option: ");
 
-	   if (productsList.isEmpty()) {
-		  System.out.println("No products found...");
-	   } else {
-		  for (Product p : productsList) {
-			 p.print();
-			 System.out.println("---------------------------------------------");
-		  }
+	  return Integer.parseInt(myScanner.nextLine());
+   }
+
+	static void processListProducts(ProductDao productDao) {
+	   for (Product p : productDao.getAll()) {
+		  p.print();
 	   }
 	}
 
-	static void processAddNewProduct() {
+	static void processAddNewProduct(ProductDao productDao) {
 	   System.out.println("Enter the ID: ");
 	   int productID = Integer.parseInt(myScanner.nextLine());
 	   System.out.println("Enter the Name: ");
