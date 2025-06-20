@@ -1,5 +1,8 @@
 package com.example.NorthwindTradersAPI.models;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Product {
 
    int productId;

@@ -19,7 +19,7 @@ public class DbConfiguration {
 
    public DbConfiguration(@Value("${datasource.url}") String url,
 						  @Value("${datasource.username}") String username,
-						  @Value("{datasource.password}") String password) {
+						  @Value("${datasource.password}") String password) {
 	  basicDataSource = new BasicDataSource();
 	  basicDataSource.setUrl(url);
 	  basicDataSource.setUsername(username);

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class JdbcProductDao implements ProductDao{
@@ -19,8 +18,8 @@ public class JdbcProductDao implements ProductDao{
 	  this.dataSource = dataSource;
    }
 
-   public List<Product> getAllProducts() {
-	  List<Product> productsList = new ArrayList<>();
+   public ArrayList<Product> getAllProducts() {
+	  ArrayList<Product> productsList = new ArrayList<>();
 	  String query = "SELECT * FROM products";
 
 	  try (Connection conn = dataSource.getConnection()) {
@@ -43,5 +42,38 @@ public class JdbcProductDao implements ProductDao{
 
 	  return productsList;
    }
+
+   public Product getById(int productId) {
+	  Product product = new Product();
+	  String query = "SELECT * FROM products WHERE ProductID = ?";
+
+	  try(Connection conn = dataSource.getConnection()) {
+		 PreparedStatement statement = conn.prepareStatement(query);
+		 statement.setInt(1, productId);
+
+		 ResultSet results = statement.executeQuery();
+		 while (results.next()) {
+			int dbProductId = results.getInt("ProductID");
+			String productName = results.getString("ProductName");
+			int categoryId = results.getInt("CategoryID");
+			double unitPrice = results.getDouble("UnitPrice");
+
+			product = new Product(dbProductId, productName, categoryId, unitPrice);
+		 }
+
+	  } catch(SQLException e) {
+		 throw new RuntimeException(e);
+	  }
+	  return product;
+   }
+
+//   @Autowired
+//   public void addProduct(Product product) {
+//	  String productName = product.getName();
+//	  int categoryID = product.getCategoryId();
+//	  double unitPrice = product.getUnitPrice();
+//
+//	  String query = "INSERT INTO products("
+//   }
 
 }
