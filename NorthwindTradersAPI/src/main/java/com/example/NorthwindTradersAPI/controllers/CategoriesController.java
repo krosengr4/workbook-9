@@ -1,6 +1,8 @@
 package com.example.NorthwindTradersAPI.controllers;
 
+import com.example.NorthwindTradersAPI.dao.CategoryDao;
 import com.example.NorthwindTradersAPI.models.Category;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -9,27 +11,21 @@ import java.util.List;
 @RestController
 public class CategoriesController {
 
-   List<Category> categoriesList = new ArrayList<>();
+   private final CategoryDao categoryDao;
 
-   public CategoriesController() {
-	  categoriesList.add(new Category(1, "Home and Office"));
-	  categoriesList.add(new Category(2, "Canned Foods"));
-	  categoriesList.add(new Category(3, "Dessert Foods"));
+   @Autowired
+   public CategoriesController(CategoryDao categoryDao) {
+	  this.categoryDao = categoryDao;
    }
 
    @RequestMapping(path = "/categories", method = RequestMethod.GET)
    public List<Category> getAllCategories() {
-	  return categoriesList;
+	  return categoryDao.getAllCategories();
    }
 
    @RequestMapping(path = "/categories/{categoryId}", method = RequestMethod.GET)
    public Category getCategory(@PathVariable int categoryId) {
-	  for(Category c : categoriesList) {
-		 if(c.getCategoryId() == categoryId) {
-			return c;
-		 }
-	  }
-	  return null;
+	  return categoryDao.getById(categoryId);
    }
 
 }
