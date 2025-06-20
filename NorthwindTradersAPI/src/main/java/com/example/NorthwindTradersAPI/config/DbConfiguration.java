@@ -17,7 +17,7 @@ public class DbConfiguration {
 	  return basicDataSource;
    }
 
-   public DbConfiguration(@Value("${spring.datasource.url}") String url,
+   public DbConfiguration(@Value("${datasource.url}") String url,
 						  @Value("${datasource.username}") String username,
 						  @Value("{datasource.password}") String password) {
 	  basicDataSource = new BasicDataSource();

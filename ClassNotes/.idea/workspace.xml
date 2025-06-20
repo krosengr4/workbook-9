@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a496406-4225-4f6e-8e95-d56ea2489591" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NorthwindTradersAPI/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NorthwindTradersAPI/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NorthwindTradersAPI/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../NorthwindTradersAPI/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/main/java/org/pluralsight/demo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/main/java/org/pluralsight/demo/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/main/java/org/pluralsight/demo/NorthwindTraderApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/main/java/org/pluralsight/demo/NorthwindTraderApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/ClassNotes/ClassNotesApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/ClassNotes/ClassNotesApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NorthwindTradersAPI/src/main/java/com/example/NorthwindTradersAPI/config/DbConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NorthwindTradersAPI/src/main/java/com/example/NorthwindTradersAPI/config/DbConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NorthwindTradersAPI/src/main/java/com/example/NorthwindTradersAPI/controllers/ProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NorthwindTradersAPI/src/main/java/com/example/NorthwindTradersAPI/controllers/ProductsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootProject/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringBootProject/.idea/material_theme_project_new.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
