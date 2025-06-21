@@ -60,4 +60,49 @@ public class JdbcCategoryDao implements CategoryDao{
 	  }
 	  return category;
    }
+
+   public Category addCategory(Category category) {
+
+	  String categoryName = category.getCategoryName();
+	  String query = "INSERT INTO categories (CategoryName) VALUES (?);";
+
+	  Category returnCategory = new Category();
+	  returnCategory.setCategoryName(categoryName);
+
+	  try (Connection conn = dataSource.getConnection()) {
+		 PreparedStatement statement = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+		 statement.setString(1, categoryName);
+
+		 int results = statement.executeUpdate();
+
+		 try (ResultSet keys = statement.getGeneratedKeys()) {
+			while(keys.next()) {
+			   returnCategory.setCategoryId(keys.getInt(1));
+			}
+		 }
+
+	  } catch (SQLException e) {
+		 throw new RuntimeException(e);
+	  }
+	  return returnCategory;
+   }
+
+   public void updateCategory(int categoryId, Category category) {
+
+	  String categoryName = category.getCategoryName();
+	  String query = "UPDATE categories SET categoryName = ? WHERE CategoryID = ?";
+
+	  try (Connection conn = dataSource.getConnection()) {
+		 PreparedStatement statement = conn.prepareStatement(query);
+		 statement.setString(1, categoryName);
+		 statement.setInt(2, categoryId);
+
+		 int rows = statement.executeUpdate();
+
+		 System.out.println("Rows updated: " + rows);
+
+	  } catch (SQLException e) {
+		 throw new RuntimeException(e);
+	  }
+   }
 }
