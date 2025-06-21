@@ -11,5 +11,6 @@ public interface ProductDao {
    ArrayList<Product> getAllProducts();
    Product getById (int productID);
    Product addProduct(Product product);
+   void updateProduct(int productId, Product product);
 }
 
