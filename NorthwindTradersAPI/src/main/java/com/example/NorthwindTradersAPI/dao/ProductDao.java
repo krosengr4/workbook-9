@@ -10,6 +10,6 @@ public interface ProductDao {
 
    ArrayList<Product> getAllProducts();
    Product getById (int productID);
-//   void addProduct(Product product);
+   Product addProduct(Product product);
 }
 

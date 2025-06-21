@@ -3,6 +3,7 @@ package com.example.NorthwindTradersAPI.controllers;
 import com.example.NorthwindTradersAPI.dao.ProductDao;
 import com.example.NorthwindTradersAPI.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -26,6 +27,12 @@ public class ProductsController {
    @RequestMapping(path = "/products/{productId}", method = RequestMethod.GET)
    public Product getProductById(@PathVariable int productId) {
 	  return productDao.getById(productId);
+   }
+
+   @RequestMapping(path = "/products", method = RequestMethod.POST)
+   @ResponseStatus(value = HttpStatus.CREATED)
+   public Product addProduct(@RequestBody Product product) {
+	  return productDao.addProduct(product);
    }
 
 }
